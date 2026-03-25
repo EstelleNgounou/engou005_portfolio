@@ -1,51 +1,57 @@
+'use client'
 import { ExternalLink, GitBranch } from 'lucide-react'
+
+import { motion } from "framer-motion";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 // TODO: Replace with your real projects
 
 const projects = [
   {
-    title:       'Project One',
-    description: 'A short description of what this project does, the problem it solves, and the impact it had.',
-    tags:        ['Next.js', 'TypeScript', 'PostgreSQL'],
-    github:      'https://github.com/yourname/project-one',
-    live:        'https://project-one.vercel.app',
+    title:       'AffirmBot',
+    description: 'Built and deployed a conversational chatbot using Python that analyzes user input and delivers context-aware personalized affirmations through intelligent intent recognition and response mapping.',
+    tags:        ['Python', 'Flask', 'Render', 'HTML', 'JavaScript', 'CSS'],
+    github:      'https://github.com/EstelleNgounou/affirmbot',
+    live:        'https://affirmbot.onrender.com',
   },
   {
-    title:       'Project Two',
-    description: 'Another project description. Keep it concise — 2-3 sentences max.',
-    tags:        ['React', 'Node.js', 'MongoDB'],
-    github:      'https://github.com/yourname/project-two',
+    title:       'Rentify',
+    description: 'A group project designed to connect renters with lessors, enabling users to list, request, and manage item rentals seamlessly. With dedicated functionalities for renters and lessors, the platform offers an efficient and user-friendly rental experience.',
+    tags:        ['Android Studio', 'Java'],
+    github:      'https://github.com/EstelleNgounou/Rentify',
     live:        '',
   },
   {
-    title:       'Project Three',
-    description: 'Describe the tech challenge and how you solved it. Mention scale or results if you have them.',
-    tags:        ['Docker', 'Express', 'Redis'],
-    github:      'https://github.com/yourname/project-three',
-    live:        'https://project-three.com',
+    title:       'Environmental Monitoring System',
+    description: 'Engineered an IoT system to monitor critical environmental conditions (temperature, humidity, and CO2 levels) in data centers, with automated real-time alerts triggered when thresholds are exceeded.',
+    tags:        ['Esp32', 'Laser Cutting', 'Sensors'],
+    github:      'https://github.com/EstelleNgounou/Environmental-Monitoring-System',
+    live:        '',
   },
 ]
 
 // ─── Component ───────────────────────────────────────────────────────────────
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto min-h-screen">
+    <section id="projects" style={{ minHeight: '100vh', padding: '6rem 1.5rem', display: 'flex', alignItems: 'center', backgroundColor: '#111318' }}>
+      <div style={{ maxWidth: '72rem', margin: '0 auto', width: '100%' }}>
 
-        <p className="font-mono text-accent text-sm tracking-widest mb-3">03. Projects</p>
-        <h2 className="text-3xl md:text-4xl font-bold text-text mb-12">Things I&apos;ve built</h2>
+        <p style={{ fontFamily: 'monospace', color: '#4FFFA4', fontSize: '1.2rem', letterSpacing: '0.1em', marginBottom: '0.3rem' }}>03. Projects</p>
+        <h2 style={{ fontSize: '2.5rem', fontWeight: '700', color: '#E8EAF0', marginBottom: '3rem' }}>Things I&apos;ve built</h2>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
           {projects.map((project) => (
-            <article
+            <motion.article
               key={project.title}
-              className="bg-surface border border-border rounded-lg p-6 flex flex-col gap-4
-                         hover:border-accent/40 hover:-translate-y-1 transition-all duration-300"
+              whileHover={{ borderColor: '#4FFFA4', scale: 1.02 }}
+              transition={{ type: 'tween', duration: 0.2 }}
+              style={{ backgroundColor: '#161A23', border: '1px solid #252A36', borderRadius: '0.5rem',
+                padding: '1.5rem', boxShadow: '1px 2px 4px #4FFFA4' }}
             >
               {/* Header */}
               <div className="flex items-start justify-between">
-                <h3 className="text-text font-semibold text-lg">{project.title}</h3>
+                <h3 style={{ fontFamily: 'monospace', color: '#4FFFA4', fontSize: '1.1rem',
+                letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>{project.title}</h3>
                 <div className="flex gap-3 text-muted">
                   {project.github && (
                     <a href={project.github} target="_blank" rel="noopener noreferrer"
@@ -63,7 +69,7 @@ export default function Projects() {
               </div>
 
               {/* Description */}
-              <p className="text-muted text-sm leading-relaxed flex-1">
+              <p style={{ color: '#5A6070', fontSize: '0.875rem', padding: '0.4rem 0', marginBottom: '1.4rem'}}>
                 {project.description}
               </p>
 
@@ -78,7 +84,7 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
 

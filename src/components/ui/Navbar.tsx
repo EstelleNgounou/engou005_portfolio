@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from "framer-motion";
+ 
+const home = [{ label: 'Hero',     href: '#hero'     }]
 
 const links = [
   { label: 'About',     href: '#about'     },
@@ -31,9 +33,10 @@ export default function Navbar() {
       <div style={{maxWidth:'100%',marginLeft:'0', padding: '1.3rem',display: 'flex',alignItems: 'center', justifyContent: 'space-between'}}>
         <div>
         {/* Logo / Name */}
-        <span className="font-mono text-accent text-sm tracking-widest uppercase">
+        <a href='#hero'
+          className="font-mono text-accent text-sm tracking-widest uppercase">
           {'<Estelle Laeticia Ngounou/>'}
-        </span>
+        </a>
         </div>
 
         <div style={{gap: '4rem' , display: 'flex',alignItems: 'center', justifyContent: 'space-between'}}>

@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic'
 import GridBackground from '@/components/three/GridBackground'
+import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
@@ -17,45 +18,62 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-20 text-center px-6 max-w-3xl mx-auto">
-        <p className="font-mono text-accent text-sm tracking-widest mb-4 animate-fade-in">
+        <p style={{fontSize: '1.4rem', color: '#4FFFA4', marginBottom: '0rem',
+          borderRadius: '4px', letterSpacing: '0.2 rem', fontFamily: 'monospace', marginTop: '3rem'}}>
           Hello, I&apos;m
         </p>
 
-        <h1 className="text-5xl md:text-7xl font-bold text-text mb-4 animate-fade-up">
-          Your Name
+        <h1 style={{fontSize: '3.5rem', fontWeight: '700', color: '#E8EAF0', marginBottom: '1rem',
+          letterSpacing: '0.2 rem', fontFamily: 'monospace', lineHeight: '1', maxWidth: '48rem'}}>
+          Estelle Laeticia Ngounou
         </h1>
 
-        <h2 className="text-xl md:text-2xl text-muted mb-8 animate-fade-up font-light">
-          Full Stack Developer
+        <h2 style={{fontSize: '1.7rem', fontWeight: '500', color: '#ACAFB8', marginBottom: '0rem',
+          letterSpacing: '0.2 rem', lineHeight: '1.4'}}>
+          Software Developer
         </h2>
 
-        <p className="text-muted max-w-xl mx-auto mb-10 leading-relaxed animate-fade-up">
-          I build modern, scalable web applications — from pixel-perfect interfaces 
-          to robust backend systems.
+        <p style={{fontSize: '1.2rem', fontWeight: '500', color: '#9C9FAA', marginBottom: '2.2rem',
+          letterSpacing: '0.2 rem', lineHeight: '1.625', maxWidth: '36rem', marginInline: 'auto'}}>
+          I turn ideas into working softwares. I pick up new technologies fast and focus on delivering real value.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up">
-          <a
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up mb-8">
+          <motion.a
             href="#projects"
-            className="bg-accent text-bg font-semibold px-8 py-3 rounded 
-                       hover:opacity-90 transition-opacity duration-200 w-full sm:w-auto text-center"
-          >
+            style={{ backgroundColor: '#4FFFA4', fontSize: '1rem', fontWeight: '600', color: '#0D0F14', borderRadius: '0.25rem',
+            padding: '0.5rem', letterSpacing: '0rem', lineHeight: '1.4', width: '8rem'}}
+            transition={{ type: 'tween', duration: 0.2}}
+            whileHover={{ opacity:0.65}}>
             View my work
-          </a>
-          <a
+          </motion.a>
+          <motion.a
             href="#contact"
-            className="border border-border text-text px-8 py-3 rounded 
-                       hover:border-accent hover:text-accent transition-all duration-200 w-full sm:w-auto text-center"
+            style={{borderWidth: '2px', borderColor: '#252A36', fontSize: '1rem', fontWeight: '600', color: '#E8EAF0', borderRadius: '0.25rem',
+            padding: '0.5rem', letterSpacing: '0rem', lineHeight: '1.4', width: '8rem'}}
+            transition={{ type: 'tween', duration: 0.3}}
+            whileHover={{ borderColor: '#4FFFA4', color: "#4FFFA4" }}
           >
             Get in touch
-          </a>
+          </motion.a>
         </div>
+        <a 
+        href="/cv.pdf" 
+        target="_blank"
+        style={{ color: '#5A6072', fontSize: '0.8rem', fontFamily: 'monospace', textDecoration: 'none',letterSpacing: '0.05em',
+        borderBottom: '1px solid #252A36', paddingBottom: '1px', transition: 'color 0.2s',}}
+        onMouseEnter={e => e.currentTarget.style.color = '#4FFFA4'}
+        onMouseLeave={e => e.currentTarget.style.color = '#5A6072'}>
+        Download Me
+      </a>
       </div>
+      
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2">
-        <span className="text-muted text-xs font-mono tracking-widest">SCROLL</span>
-        <div className="w-px h-12 bg-gradient-to-b from-accent to-transparent animate-pulse" />
+      <div style={{position: 'absolute', bottom: '2.5rem', left: '50%', transform: 'translateX(-50%)', zIndex: 20,
+      display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem'}}>
+        <span style={{color: '#5A6072', fontSize: '0.75rem', fontFamily: 'monospace',letterSpacing: '0.1em',}}>SCROLL</span>
+        <div style={{ width: '1px', height: '3rem', background: 'linear-gradient(to bottom, #4FFFA4, transparent)', animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',}} />
       </div>
     </section>
   )

@@ -1,71 +1,77 @@
-// ─── Data ────────────────────────────────────────────────────────────────────
-// TODO: Adjust levels and add/remove techs to match your actual skills
+'use client'
+
+import { motion } from "framer-motion";
 
 const skillGroups = [
   {
-    category: 'Frontend',
+    category: 'Languages',
     skills: [
-      { name: 'React / Next.js', level: 90 },
-      { name: 'TypeScript',      level: 85 },
-      { name: 'Tailwind CSS',    level: 88 },
+      { name: 'JavaScript / TypeScript', level: 85 },
+      { name: 'Python',                  level: 80 },
+      { name: 'Java',                    level: 75 },
+      { name: 'SQL',                     level: 78 },
     ],
   },
   {
-    category: 'Backend',
+    category: 'Frameworks & Libraries',
     skills: [
-      { name: 'Node.js / Express', level: 85 },
-      { name: 'PostgreSQL',        level: 78 },
-      { name: 'REST / GraphQL',    level: 80 },
+      { name: 'React',                level: 85 },
+      { name: 'Express',              level: 78 },
+      { name: 'TensorFlow / PyTorch', level: 65 },
+      { name: 'Laravel',              level: 60 },
     ],
   },
   {
-    category: 'DevOps & Tools',
+    category: 'Tools & Systems',
     skills: [
-      { name: 'Docker',       level: 72 },
-      { name: 'Git / GitHub', level: 90 },
-      { name: 'CI/CD',        level: 68 },
+      { name: 'Git / GitHub',     level: 88 },
+      { name: 'Visual Studio Code', level: 70 },
+      { name: 'Jira / Notion',    level: 75 },
+      { name: 'Android Studio',   level: 65 },
     ],
   },
 ]
 
-// ─── Component ───────────────────────────────────────────────────────────────
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 px-6 bg-surface/30">
-      <div className="max-w-6xl mx-auto min-h-screen">
+    <section id="skills" style={{ minHeight: '100vh', padding: '6rem 1.5rem', display: 'flex', alignItems: 'center', backgroundColor: '#111318' }}>
+      <div style={{ maxWidth: '72rem', margin: '0 auto', width: '100%' }}>
 
-        <p className="font-mono text-accent text-sm tracking-widest mb-3">02. Skills</p>
-        <h2 className="text-3xl md:text-4xl font-bold text-text mb-12">My tech stack</h2>
+        <p style={{ fontFamily: 'monospace', color: '#4FFFA4', fontSize: '1.2rem', letterSpacing: '0.1em', marginBottom: '0.3rem' }}>
+          02. Skills
+        </p>
+        <h2 style={{ fontSize: '2.5rem', fontWeight: '700', color: '#E8EAF0', marginBottom: '3rem' }}>
+          My tech stack
+        </h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
           {skillGroups.map((group) => (
-            <div
+            <motion.div
               key={group.category}
-              className="bg-surface border border-border rounded-lg p-6 
-                         hover:border-accent/30 transition-colors duration-300"
+              whileHover={{ borderColor: '#4FFFA4', scale: 1.02 }}
+              transition={{ type: 'tween', duration: 0.2 }}
+              style={{ backgroundColor: '#161A23', border: '1px solid #252A36', borderRadius: '0.5rem',
+                padding: '1.5rem', boxShadow: '1px 2px 4px #4FFFA4' }}
             >
-              <h3 className="text-accent font-mono text-sm tracking-widest mb-6 uppercase">
+              <h3 style={{ fontFamily: 'monospace', color: '#4FFFA4', fontSize: '1.1rem',
+                letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>
                 {group.category}
               </h3>
 
-              <ul className="flex flex-col gap-5">
+              <ul style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', listStyle: 'none', padding: 0 }}>
                 {group.skills.map((skill) => (
-                  <li key={skill.name}>
-                    <div className="flex justify-between mb-1">
-                      <span className="text-text text-sm">{skill.name}</span>
-                      <span className="text-muted text-xs font-mono">{skill.level}%</span>
-                    </div>
-                    {/* Progress bar */}
-                    <div className="h-1 bg-border rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-accent rounded-full transition-all duration-700"
-                        style={{ width: `${skill.level}%` }}
-                      />
-                    </div>
+                  <li key={skill.name} style={{ 
+                    color: '#E8EAF0', 
+                    fontSize: '0.875rem',
+                    padding: '0.4rem 0',
+                    borderBottom: '3px solid #4FFFA4'
+                  }}>
+                    {skill.name}
                   </li>
                 ))}
               </ul>
-            </div>
+
+            </motion.div>
           ))}
         </div>
 
