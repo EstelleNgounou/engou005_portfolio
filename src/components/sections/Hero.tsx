@@ -4,6 +4,9 @@ import dynamic from 'next/dynamic'
 import GridBackground from '@/components/three/GridBackground'
 import { motion } from "framer-motion";
 
+const name = "Estelle Laeticia Ngounou".split("")
+const title = "Software Developer".split(" ")
+
 export default function Hero() {
   return (
     <section
@@ -18,25 +21,54 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-20 text-center px-6 max-w-3xl mx-auto">
-        <p style={{fontSize: '1.4rem', color: '#4FFFA4', marginBottom: '0rem',
-          borderRadius: '4px', letterSpacing: '0.2 rem', fontFamily: 'monospace', marginTop: '3rem'}}>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ amount: 0.3 , once: false }}
+          transition={{ delay: 0.3, duration: 0.7 }}
+          style={{ fontSize: '1.4rem', color: '#4FFFA4', marginBottom: '0', fontFamily: 'monospace', marginTop: '3rem' }}>
           Hello, I&apos;m
-        </p>
+        </motion.p>
 
         <h1 style={{fontSize: '3.5rem', fontWeight: '700', color: '#E8EAF0', marginBottom: '1rem',
           letterSpacing: '0.2 rem', fontFamily: 'monospace', lineHeight: '1', maxWidth: '48rem'}}>
-          Estelle Laeticia Ngounou
+            {name.map((letter, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.3, once: false  }}
+              transition={{ delay: 0.5 + i * 0.1, duration: 0.7}}
+              style={{ whiteSpace: 'pre' }}
+            >
+              {letter}
+            </motion.span>
+          ))}
         </h1>
 
         <h2 style={{fontSize: '1.7rem', fontWeight: '500', color: '#ACAFB8', marginBottom: '0rem',
-          letterSpacing: '0.2 rem', lineHeight: '1.4'}}>
-          Software Developer
+          letterSpacing: '0.2 rem', lineHeight: '1.4',  display: 'flex', justifyContent: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
+          {title.map((word, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.3 , once: false }}
+              transition={{ delay: 1.5 + name.length * 0.04 + 0.3 + i * 0.15, duration: 0.9 }}
+            >
+              {word}
+            </motion.span>
+          ))}
         </h2>
 
-        <p style={{fontSize: '1.2rem', fontWeight: '500', color: '#9C9FAA', marginBottom: '2.2rem',
+        <motion.p initial={{ opacity: 0 }}
+          viewport={{ amount: 0.3, once: false  }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.8 + name.length * 0.04 + 0.3 + title.length * 0.15 + 0.3, duration: 0.6 }}
+          style={{fontSize: '1.2rem', fontWeight: '500', color: '#9C9FAA', marginBottom: '2.2rem',
           letterSpacing: '0.2 rem', lineHeight: '1.625', maxWidth: '36rem', marginInline: 'auto'}}>
           I turn ideas into working softwares. I pick up new technologies fast and focus on delivering real value.
-        </p>
+        </motion.p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up mb-8">
           <motion.a

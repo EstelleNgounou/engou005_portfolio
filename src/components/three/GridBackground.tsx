@@ -52,7 +52,7 @@ export default function GridBackground() {
           const offsetY  = (dy / (dist || 1)) * strength * 20
 
           // Ambient wave
-          const wave = Math.sin(i * 0.5 + j * 0.3 + time) * 3
+          const wave = Math.sin(i * 0.5 + j * 0.3 + time) * 6
 
           const x = baseX + offsetX + wave
           const y = baseY + offsetY + wave

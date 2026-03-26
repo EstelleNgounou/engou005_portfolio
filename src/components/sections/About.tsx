@@ -36,18 +36,25 @@ export default function About() {
           ].map((stat) => (
             <motion.div
               key={stat.label}
-              whileHover={{ borderColor: '#4FFFA4', scale: 1.06 }}
-              transition={{ type: 'tween', duration: 0.1 }}
-              style={{backgroundColor: '#161A23', border: '1px solid #252A36', borderRadius: '0.5rem',
-                padding: '2rem', textAlign: 'center', cursor: 'default', boxShadow: '1px 2px 4px #4FFFA4'}}
-            >
-              <span style={{ display: 'block', fontSize: '1.875rem', fontWeight: '700', color: '#4FFFA4', marginBottom: '0.25rem' }}>
-                {stat.value}
-              </span>
-              <span style={{ color: '#5A6072', fontSize: '0.875rem' }}>
-                {stat.label}
-              </span>
-            </motion.div>
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.4 }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              whileHover={{ 
+                borderColor: '#4FFFA4', 
+                scale: 1.06,
+                transition: { duration: 0.1, type: 'tween' }
+              }}
+              style={{backgroundColor: '#161A23',  border: '1px solid #252A36', borderRadius: '0.5rem',
+              padding: '2rem', textAlign: 'center', cursor: 'default',  boxShadow: '1px 2px 4px #4FFFA4'}}
+              >
+            <span style={{display: 'block', fontSize: '1.875rem', fontWeight: '700', color: '#4FFFA4', marginBottom: '0.25rem' }}>
+            {stat.value}
+            </span>
+            <span style={{ color: '#5A6072', fontSize: '0.875rem' }}>
+            {stat.label}
+            </span>
+          </motion.div>
           ))}
         </div>
 
