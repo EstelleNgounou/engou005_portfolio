@@ -5,7 +5,7 @@ import GridBackground from '@/components/three/GridBackground'
 import { motion } from "framer-motion";
 
 const name = "Estelle Laeticia Ngounou".split("")
-const title = "Software Developer".split(" ")
+const title = "Passionate Software Developer".split(" ")
 
 export default function Hero() {
   return (
