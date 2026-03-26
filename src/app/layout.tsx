@@ -13,8 +13,8 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Your Name — Full Stack Developer',
-  description: 'Portfolio of a Full Stack Developer specializing in modern web technologies.',
+  title: 'Estelle Ngounou',
+  description: 'My Portfolio',
 }
 
 export default function RootLayout({
