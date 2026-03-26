@@ -8,7 +8,7 @@ const items = [
     title:       'Junior Software Developer',
     institution: 'Normex',
     period:      'Sept 2025 — Present',
-    description: 'Developing and maintaining software solutions as part of a professional dev team, applying full stack skills in a real-world production environment.',
+    description: 'Designed and shipped frontend features that improved usability and accessibility for end users across food and manufacturing organizations',
   },
   {
     type:        'education',
@@ -22,7 +22,7 @@ const items = [
     title:       'Fundraiser',
     institution: 'Fundraising Direct',
     period:      'May 2024 — Sept 2025',
-    description: 'Developed strong communication and persuasion skills while working directly with the public, managing outreach campaigns and hitting targets consistently.',
+    description: 'Applied persuasive communication and negotiation skills to consistently meet and exceed fundraising targets',
   },
 ]
 

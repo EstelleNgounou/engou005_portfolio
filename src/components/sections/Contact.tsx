@@ -3,6 +3,7 @@
 import { useForm } from 'react-hook-form'
 import { GitBranch, Link2Icon, Mail } from 'lucide-react'
 import { motion } from "framer-motion"
+import { useState } from 'react'
 
 type FormData = {
   name:    string
@@ -11,6 +12,8 @@ type FormData = {
 }
 
 export default function Contact() {
+  const [serverError, setServerError] = useState<string | null>(null)
+  
   const {
     register,
     handleSubmit,
@@ -19,11 +22,28 @@ export default function Contact() {
   } = useForm<FormData>()
 
   const onSubmit = async (data: FormData) => {
-    // TODO: Connect to an email service (Resend, EmailJS, Formspree, etc.)
-    // For now, just logs to console
-    console.log('Form submitted:', data)
-    await new Promise((r) => setTimeout(r, 800)) // fake delay
-    reset()
+    setServerError(null)
+    
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+
+      const result = await response.json()
+
+      if (response.ok) {
+        reset()
+      } else {
+        throw new Error(result.error || 'Failed to send message')
+      }
+    } catch (error) {
+      console.error('Error sending message:', error)
+      setServerError('Failed to send message. Please email me directly at deln.994@gmail.com')
+    }
   }
 
   return (
@@ -52,7 +72,6 @@ export default function Contact() {
               height: '100%'
             }}
           >
-            {/* Top text */}
             <div>
               <p style={{ color: '#5A6072', lineHeight: '1.75', marginBottom: '2rem', fontSize: '0.95rem' }}>
                 I'm currently open to new opportunities and always eager to collaborate on 
@@ -63,7 +82,6 @@ export default function Contact() {
               </p>
             </div>
 
-            {/* Middle — Social links (centered vertically) */}
             <div style={{ 
               display: 'flex', 
               gap: '1rem',
@@ -73,7 +91,7 @@ export default function Contact() {
             }}>
               {[
                 { icon: GitBranch,   href: 'https://github.com/EstelleNgounou',            label: 'GitHub'   },
-                { icon: Link2Icon, href: 'https://linkedin.com/in/yourname',        label: 'LinkedIn' },
+                { icon: Link2Icon, href: 'https://www.linkedin.com/in/estelle-ngounou-47941b26a/',        label: 'LinkedIn' },
                 { icon: Mail,     href: 'mailto:deln.994@gmail.com',                   label: 'Email'    },
               ].map(({ icon: Icon, href, label }) => (
                 <a
@@ -106,7 +124,6 @@ export default function Contact() {
               ))}
             </div>
 
-            {/* Bottom spacer to balance layout */}
             <div></div>
           </motion.div>
 
@@ -120,7 +137,6 @@ export default function Contact() {
             style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}
             noValidate
           >
-            {/* Name */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
               <label htmlFor="name" style={{ fontSize: '0.875rem', color: '#5A6072', fontFamily: 'monospace' }}>Name</label>
               <input
@@ -144,7 +160,6 @@ export default function Contact() {
               {errors.name && <span style={{ color: '#ef4444', fontSize: '0.75rem' }}>{errors.name.message}</span>}
             </div>
 
-            {/* Email */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
               <label htmlFor="email" style={{ fontSize: '0.875rem', color: '#5A6072', fontFamily: 'monospace' }}>Email</label>
               <input
@@ -171,7 +186,6 @@ export default function Contact() {
               {errors.email && <span style={{ color: '#ef4444', fontSize: '0.75rem' }}>{errors.email.message}</span>}
             </div>
 
-            {/* Message */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
               <label htmlFor="message" style={{ fontSize: '0.875rem', color: '#5A6072', fontFamily: 'monospace' }}>Message</label>
               <textarea
@@ -197,7 +211,6 @@ export default function Contact() {
               {errors.message && <span style={{ color: '#ef4444', fontSize: '0.75rem' }}>{errors.message.message}</span>}
             </div>
 
-            {/* Submit */}
             <button
               type="submit"
               disabled={isSubmitting}
@@ -221,6 +234,12 @@ export default function Contact() {
             >
               {isSubmitting ? 'Sending...' : 'Send message'}
             </button>
+
+            {serverError && (
+              <p style={{ color: '#ef4444', fontSize: '0.875rem', textAlign: 'center' }}>
+                {serverError}
+              </p>
+            )}
 
             {isSubmitSuccessful && (
               <p style={{ color: '#4FFFA4', fontSize: '0.875rem', textAlign: 'center', fontFamily: 'monospace' }}>
