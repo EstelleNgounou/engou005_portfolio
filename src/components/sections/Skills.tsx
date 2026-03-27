@@ -49,17 +49,17 @@ const skillGroups = [
 
 export default function Skills() {
   return (
-    <section id="skills" style={{ minHeight: '100vh', padding: '6rem 1.5rem', display: 'flex', alignItems: 'center', backgroundColor: '#111318' }}>
+    <section id="skills" style={{ minHeight: '100vh', padding: 'clamp(3rem, 8vw, 6rem) clamp(1rem, 4vw, 1.5rem)', display: 'flex', alignItems: 'center', backgroundColor: '#111318' }}>
       <div style={{ maxWidth: '72rem', margin: '0 auto', width: '100%' }}>
 
-        <p style={{ fontFamily: 'monospace', color: '#4FFFA4', fontSize: '1.2rem', letterSpacing: '0.1em', marginBottom: '0.3rem' }}>
+        <p style={{ fontFamily: 'monospace', color: '#4FFFA4', fontSize: 'clamp(1rem, 2vw, 1.2rem)', letterSpacing: '0.1em', marginBottom: '0.3rem' }}>
           02. Skills
         </p>
-        <h2 style={{ fontSize: '2.5rem', fontWeight: '700', color: '#E8EAF0', marginBottom: '3rem' }}>
+        <h2 style={{ fontSize: 'clamp(1.75rem, 5vw, 2.5rem)', fontWeight: '700', color: '#E8EAF0', marginBottom: 'clamp(1.5rem, 4vw, 3rem)' }}>
           My tech stack
         </h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 'clamp(1rem, 3vw, 2rem)' }}>
           {skillGroups.map((group, i) => (
             <motion.div
               key={group.category}
@@ -69,9 +69,9 @@ export default function Skills() {
               transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.5 }}
               whileHover={{ borderColor: '#4FFFA4', scale: 1.02, transition: { type: 'tween', duration: 0.2 } }}
               style={{ backgroundColor: '#161A23', border: '1px solid #252A36', borderRadius: '0.5rem',
-                padding: '1.5rem', boxShadow: '1px 2px 4px #4FFFA4' }}
+                padding: 'clamp(1rem, 3vw, 1.5rem)', boxShadow: '1px 2px 4px #4FFFA4' }}
             >
-              <h3 style={{ fontFamily: 'monospace', color: '#4FFFA4', fontSize: '1rem',
+              <h3 style={{ fontFamily: 'monospace', color: '#4FFFA4', fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
                 letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>
                 {group.category}
               </h3>
@@ -89,13 +89,13 @@ export default function Skills() {
                       alignItems: 'center',
                       justifyContent: 'space-between',
                       color: '#E8EAF0', 
-                      fontSize: '0.875rem',
+                      fontSize: 'clamp(0.8rem, 1.2vw, 0.875rem)',
                       padding: '0.6rem 0',
                       borderBottom: '2px dotted #4FFFA4'
                     }}
                   >
                     <span>{skill.name}</span>
-                    <skill.icon style={{ color: '#4FFFA4', fontSize: '1.2rem' }} />
+                    <skill.icon style={{ color: '#4FFFA4', fontSize: 'clamp(1rem, 1.5vw, 1.2rem)' }} />
                   </motion.li>
                 ))}
               </ul>

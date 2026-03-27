@@ -3,31 +3,31 @@ import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <section id="about" style={{ minHeight: '100vh', padding: '6rem 1.5rem', display: 'flex', alignItems: 'center' }}>
-      <div style={{ maxWidth: '72rem', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center', width: '100%' }}>
+    <section id="about" style={{ minHeight: '100vh', padding: 'clamp(3rem, 8vw, 6rem) clamp(1rem, 4vw, 1.5rem)', display: 'flex', alignItems: 'center' }}>
+      <div style={{ maxWidth: '72rem', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'clamp(2rem, 5vw, 4rem)', alignItems: 'center', width: '100%' }}>
 
         {/* Text */}
         <div>
-          <p style={{ fontFamily: 'monospace', color: '#4FFFA4', fontSize: '1.2rem', letterSpacing: '0.1em', marginBottom: '0.3rem' }}>
+          <p style={{ fontFamily: 'monospace', color: '#4FFFA4', fontSize: 'clamp(1rem, 2vw, 1.2rem)', letterSpacing: '0.1em', marginBottom: '0.3rem' }}>
             01. About me
           </p>
-          <h2 style={{ fontSize: '2.5rem', fontWeight: '700', color: '#E8EAF0', marginBottom: '1.5rem' }}>
+          <h2 style={{ fontSize: 'clamp(1.75rem, 5vw, 2.5rem)', fontWeight: '700', color: '#E8EAF0', marginBottom: '1.5rem' }}>
             Who I am
           </h2>
-          <p style={{ color: '#5A6072', lineHeight: '1.75', marginBottom: '1rem' }}>
+          <p style={{ color: '#5A6072', lineHeight: '1.75', marginBottom: '1rem', fontSize: 'clamp(0.875rem, 1.5vw, 0.95rem)' }}>
             I&apos;m a recently graduated Computer Science developer, 
             eager to bring fresh perspectives and strong fundamentals to real-world challenges.
             I&apos;m actively looking for opportunities where I can contribute, grow, 
             and keep building things that matter.
           </p>
-          <p style={{ color: '#5A6072', lineHeight: '1.75' }}>
+          <p style={{ color: '#5A6072', lineHeight: '1.75', fontSize: 'clamp(0.875rem, 1.5vw, 0.95rem)' }}>
             When I&apos;m not coding, you&apos;ll find me in the kitchen baking, 
             at the gym, or spending time with my family.
           </p>
         </div>
 
         {/* Stats */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '6rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: 'clamp(0.5rem, 2vw, 1rem)', marginTop: 'clamp(2rem, 4vw, 6rem)' }}>
           {[
             { value: '1+',  label: 'Years of experience' },
             { value: '10+', label: 'Projects completed'  },
@@ -46,12 +46,12 @@ export default function About() {
                 transition: { duration: 0.1, type: 'tween' }
               }}
               style={{backgroundColor: '#161A23',  border: '1px solid #252A36', borderRadius: '0.5rem',
-              padding: '2rem', textAlign: 'center', cursor: 'default',  boxShadow: '1px 2px 4px #4FFFA4'}}
+              padding: 'clamp(1rem, 2vw, 2rem)', textAlign: 'center', cursor: 'default',  boxShadow: '1px 2px 4px #4FFFA4'}}
               >
-            <span style={{display: 'block', fontSize: '1.875rem', fontWeight: '700', color: '#4FFFA4', marginBottom: '0.25rem' }}>
+            <span style={{display: 'block', fontSize: 'clamp(1.5rem, 3vw, 1.875rem)', fontWeight: '700', color: '#4FFFA4', marginBottom: '0.25rem' }}>
             {stat.value}
             </span>
-            <span style={{ color: '#5A6072', fontSize: '0.875rem' }}>
+            <span style={{ color: '#5A6072', fontSize: 'clamp(0.75rem, 1vw, 0.875rem)' }}>
             {stat.label}
             </span>
           </motion.div>

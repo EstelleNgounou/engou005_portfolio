@@ -47,17 +47,17 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" style={{ minHeight: '100vh', padding: '6rem 1.5rem', display: 'flex', alignItems: 'center', backgroundColor: '#111318' }}>
+    <section id="contact" style={{ minHeight: '100vh', padding: 'clamp(3rem, 8vw, 6rem) clamp(1rem, 4vw, 1.5rem)', display: 'flex', alignItems: 'center', backgroundColor: '#111318' }}>
       <div style={{ maxWidth: '72rem', margin: '0 auto', width: '100%' }}>
         
-        <p style={{ fontFamily: 'monospace', color: '#4FFFA4', fontSize: '1.2rem', letterSpacing: '0.1em', marginBottom: '0.3rem' }}>
+        <p style={{ fontFamily: 'monospace', color: '#4FFFA4', fontSize: 'clamp(1rem, 2vw, 1.2rem)', letterSpacing: '0.1em', marginBottom: '0.3rem' }}>
           05. Contact
         </p>
-        <h2 style={{ fontSize: '2.5rem', fontWeight: '700', color: '#E8EAF0', marginBottom: '1rem' }}>
+        <h2 style={{ fontSize: 'clamp(1.75rem, 5vw, 2.5rem)', fontWeight: '700', color: '#E8EAF0', marginBottom: 'clamp(1.5rem, 3vw, 1rem)' }}>
           Let&apos;s work together
         </h2>
 
-        <div style={{ maxWidth: '72rem', margin: '0 auto', width: '100%', display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '4rem' }}>
+        <div style={{ maxWidth: '72rem', margin: '0 auto', width: '100%', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'clamp(2rem, 4vw, 4rem)' }}>
 
           {/* Left — text */}
           <motion.div
@@ -73,7 +73,7 @@ export default function Contact() {
             }}
           >
             <div>
-              <p style={{ color: '#5A6072', lineHeight: '1.75', marginBottom: '2rem', fontSize: '0.95rem' }}>
+              <p style={{ color: '#5A6072', lineHeight: '1.75', marginBottom: '2rem', fontSize: 'clamp(0.8rem, 1.5vw, 0.95rem)' }}>
                 I'm currently open to new opportunities and always eager to collaborate on 
                 interesting projects. Whether you have a development role in mind, a creative 
                 project to discuss, a question about my experience, or just want to say hi 
@@ -84,10 +84,11 @@ export default function Contact() {
 
             <div style={{ 
               display: 'flex', 
-              gap: '1rem',
+              gap: 'clamp(0.5rem, 2vw, 1rem)',
               justifyContent: 'center',
               marginTop: 'auto',
-              marginBottom: 'auto'
+              marginBottom: 'auto',
+              flexWrap: 'wrap'
             }}>
               {[
                 { icon: GitBranch,   href: 'https://github.com/EstelleNgounou',            label: 'GitHub'   },
@@ -101,7 +102,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   aria-label={label}
                   style={{
-                    padding: '0.75rem',
+                    padding: 'clamp(0.5rem, 1vw, 0.75rem)',
                     border: '1px solid #252A36',
                     borderRadius: '0.5rem',
                     color: '#5A6072',
@@ -138,7 +139,7 @@ export default function Contact() {
             noValidate
           >
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-              <label htmlFor="name" style={{ fontSize: '0.875rem', color: '#5A6072', fontFamily: 'monospace' }}>Name</label>
+              <label htmlFor="name" style={{ fontSize: 'clamp(0.75rem, 1.2vw, 0.875rem)', color: '#5A6072', fontFamily: 'monospace' }}>Name</label>
               <input
                 id="name"
                 type="text"
@@ -147,9 +148,9 @@ export default function Contact() {
                   backgroundColor: '#0D0F14',
                   border: `1px solid ${errors.name ? '#ef4444' : '#252A36'}`,
                   borderRadius: '0.5rem',
-                  padding: '0.75rem 1rem',
+                  padding: 'clamp(0.6rem, 1.5vw, 0.75rem) clamp(0.75rem, 2vw, 1rem)',
                   color: '#E8EAF0',
-                  fontSize: '0.875rem',
+                  fontSize: 'clamp(0.8rem, 1.2vw, 0.875rem)',
                   outline: 'none',
                   transition: 'border-color 0.2s'
                 }}
@@ -157,11 +158,11 @@ export default function Contact() {
                 onFocus={(e) => e.currentTarget.style.borderColor = '#4FFFA4'}
                 {...register('name', { required: 'Name is required' })}
               />
-              {errors.name && <span style={{ color: '#ef4444', fontSize: '0.75rem' }}>{errors.name.message}</span>}
+              {errors.name && <span style={{ color: '#ef4444', fontSize: 'clamp(0.65rem, 1vw, 0.75rem)' }}>{errors.name.message}</span>}
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-              <label htmlFor="email" style={{ fontSize: '0.875rem', color: '#5A6072', fontFamily: 'monospace' }}>Email</label>
+              <label htmlFor="email" style={{ fontSize: 'clamp(0.75rem, 1.2vw, 0.875rem)', color: '#5A6072', fontFamily: 'monospace' }}>Email</label>
               <input
                 id="email"
                 type="email"
@@ -170,9 +171,9 @@ export default function Contact() {
                   backgroundColor: '#0D0F14',
                   border: `1px solid ${errors.email ? '#ef4444' : '#252A36'}`,
                   borderRadius: '0.5rem',
-                  padding: '0.75rem 1rem',
+                  padding: 'clamp(0.6rem, 1.5vw, 0.75rem) clamp(0.75rem, 2vw, 1rem)',
                   color: '#E8EAF0',
-                  fontSize: '0.875rem',
+                  fontSize: 'clamp(0.8rem, 1.2vw, 0.875rem)',
                   outline: 'none',
                   transition: 'border-color 0.2s'
                 }}
@@ -183,11 +184,11 @@ export default function Contact() {
                   pattern:  { value: /^\S+@\S+\.\S+$/, message: 'Invalid email' },
                 })}
               />
-              {errors.email && <span style={{ color: '#ef4444', fontSize: '0.75rem' }}>{errors.email.message}</span>}
+              {errors.email && <span style={{ color: '#ef4444', fontSize: 'clamp(0.65rem, 1vw, 0.75rem)' }}>{errors.email.message}</span>}
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-              <label htmlFor="message" style={{ fontSize: '0.875rem', color: '#5A6072', fontFamily: 'monospace' }}>Message</label>
+              <label htmlFor="message" style={{ fontSize: 'clamp(0.75rem, 1.2vw, 0.875rem)', color: '#5A6072', fontFamily: 'monospace' }}>Message</label>
               <textarea
                 id="message"
                 rows={5}
@@ -196,9 +197,9 @@ export default function Contact() {
                   backgroundColor: '#0D0F14',
                   border: `1px solid ${errors.message ? '#ef4444' : '#252A36'}`,
                   borderRadius: '0.5rem',
-                  padding: '0.75rem 1rem',
+                  padding: 'clamp(0.6rem, 1.5vw, 0.75rem) clamp(0.75rem, 2vw, 1rem)',
                   color: '#E8EAF0',
-                  fontSize: '0.875rem',
+                  fontSize: 'clamp(0.8rem, 1.2vw, 0.875rem)',
                   outline: 'none',
                   transition: 'border-color 0.2s',
                   resize: 'none',
@@ -208,7 +209,7 @@ export default function Contact() {
                 onFocus={(e) => e.currentTarget.style.borderColor = '#4FFFA4'}
                 {...register('message', { required: 'Message is required' })}
               />
-              {errors.message && <span style={{ color: '#ef4444', fontSize: '0.75rem' }}>{errors.message.message}</span>}
+              {errors.message && <span style={{ color: '#ef4444', fontSize: 'clamp(0.65rem, 1vw, 0.75rem)' }}>{errors.message.message}</span>}
             </div>
 
             <button
@@ -218,12 +219,13 @@ export default function Contact() {
                 backgroundColor: '#4FFFA4',
                 color: '#0D0F14',
                 fontWeight: '600',
-                padding: '0.75rem',
+                padding: 'clamp(0.6rem, 1.5vw, 0.75rem)',
                 borderRadius: '0.5rem',
                 transition: 'opacity 0.2s',
                 opacity: isSubmitting ? 0.5 : 1,
                 cursor: isSubmitting ? 'not-allowed' : 'pointer',
-                border: 'none'
+                border: 'none',
+                fontSize: 'clamp(0.8rem, 1.2vw, 0.875rem)'
               }}
               onMouseEnter={(e) => {
                 if (!isSubmitting) e.currentTarget.style.opacity = '0.9'
@@ -236,13 +238,13 @@ export default function Contact() {
             </button>
 
             {serverError && (
-              <p style={{ color: '#ef4444', fontSize: '0.875rem', textAlign: 'center' }}>
+              <p style={{ color: '#ef4444', fontSize: 'clamp(0.75rem, 1.2vw, 0.875rem)', textAlign: 'center' }}>
                 {serverError}
               </p>
             )}
 
             {isSubmitSuccessful && (
-              <p style={{ color: '#4FFFA4', fontSize: '0.875rem', textAlign: 'center', fontFamily: 'monospace' }}>
+              <p style={{ color: '#4FFFA4', fontSize: 'clamp(0.75rem, 1.2vw, 0.875rem)', textAlign: 'center', fontFamily: 'monospace' }}>
                 ✓ Message sent! I&apos;ll get back to you soon.
               </p>
             )}
