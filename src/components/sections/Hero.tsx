@@ -96,7 +96,7 @@ export default function Hero({ locale }: HeroProps) {
         <a 
         href="/cv.pdf" 
         target="_blank"
-        style={{ color: '#5A6072', fontSize: 'clamp(0.7rem, 1vw, 0.8rem)', fontFamily: 'monospace', textDecoration: 'none',letterSpacing: '0.05em',
+        style={{color: '#5A6072', fontSize: 'clamp(0.7rem, 1vw, 0.8rem)', fontFamily: 'monospace', textDecoration: 'none',letterSpacing: '0.05em',
         borderBottom: '1px solid #252A36', paddingBottom: '1px', transition: 'color 0.2s',}}
         onMouseEnter={e => e.currentTarget.style.color = '#4FFFA4'}
         onMouseLeave={e => e.currentTarget.style.color = '#5A6072'}>

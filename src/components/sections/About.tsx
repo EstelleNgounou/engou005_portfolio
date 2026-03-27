@@ -30,13 +30,10 @@ export default function About({ locale }: AboutProps) {
           <h2 style={{ fontSize: 'clamp(1.75rem, 5vw, 2.5rem)', fontWeight: '700', color: '#E8EAF0', marginBottom: '1.5rem' }}>
             {t.heading}
           </h2>
-          <p style={{ color: '#5A6072', lineHeight: '1.75', marginBottom: '1rem', fontSize: 'clamp(0.875rem, 1.5vw, 0.95rem)' }}>
-            {t.intro1}
+          <p style={{ color: '#5A6072', lineHeight: '1.75', marginBottom: '1.5rem', fontSize: 'clamp(0.875rem, 1.5vw, 0.95rem)', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
+            {t.intro1} {t.intro2}
           </p>
-          <p style={{ color: '#5A6072', lineHeight: '1.75', fontSize: 'clamp(0.875rem, 1.5vw, 0.95rem)' }}>
-            {t.intro2}
-          </p>
-          <p style={{ color: '#5A6072', lineHeight: '1.75', fontSize: 'clamp(0.875rem, 1.5vw, 0.95rem)' }}>
+          <p style={{ color: '#5A6072', lineHeight: '1.75', marginBottom: '0', fontSize: 'clamp(0.875rem, 1.5vw, 0.95rem)' }}>
             {t.outro}
           </p>
         </div>
@@ -65,13 +62,14 @@ export default function About({ locale }: AboutProps) {
                 boxShadow: '0 0 0 1px rgba(79,255,164,0.1), 0 8px 20px rgba(0,0,0,0.25)',
                 gridColumn: !isMobile && index === 0 ? '1 / -1' : undefined,
                 justifySelf: !isMobile && index === 0 ? 'center' : 'stretch',
-                maxWidth: !isMobile && index === 0 ? '280px' : 'auto'
+                maxWidth: !isMobile && index === 0 ? '280px' : 'auto',
+                minHeight: isMobile ? '100px' : 'auto'
               }}
             >
-              <span style={{display: 'block', fontSize: 'clamp(1.25rem, 2.5vw, 1.8rem)', fontWeight: '700', color: '#4FFFA4', marginBottom: '0.3rem' }}>
+              <span style={{display: 'block', fontSize: isMobile ? '1.5rem' : 'clamp(1.25rem, 2.5vw, 1.8rem)', fontWeight: '700', color: '#4FFFA4', marginBottom: '0.3rem', whiteSpace: 'nowrap' }}>
                 {stat.value}
               </span>
-              <span style={{ color: '#ACAFB8', fontSize: 'clamp(0.75rem, 1vw, 0.875rem)', letterSpacing: '0.05em' }}>
+              <span style={{ color: '#ACAFB8', fontSize: isMobile ? '0.8rem' : 'clamp(0.75rem, 1vw, 0.875rem)', letterSpacing: '0.05em', whiteSpace: 'nowrap', display: 'block' }}>
                 {stat.label}
               </span>
             </motion.div>
