@@ -26,11 +26,11 @@ export default function Hero() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ amount: 0.3 , once: false }}
           transition={{ delay: 0.3, duration: 0.7 }}
-          style={{ fontSize: 'clamp(1rem, 2vw, 1.4rem)', color: '#4FFFA4', marginBottom: '0', fontFamily: 'monospace', marginTop: 'clamp(1.5rem, 3vw, 3rem)' }}>
+          style={{ fontSize: 'clamp(0.850rem, 2vw, 1.4rem)', color: '#4FFFA4', marginBottom: '0', fontFamily: 'monospace', marginTop: 'clamp(1.5rem, 3vw, 3rem)' }}>
           Hello, I&apos;m
         </motion.p>
 
-        <h1 style={{fontSize: 'clamp(1.25rem, 5.5vw, 3.5rem)', fontWeight: '700', color: '#E8EAF0', marginBottom: 'clamp(0.5rem, 2vw, 1rem)',
+        <h1 style={{fontSize: 'clamp(1rem, 5vw, 3.5rem)', fontWeight: '700', color: '#E8EAF0', marginBottom: 'clamp(0.5rem, 2vw, 1rem)',
           letterSpacing: '0.2rem', fontFamily: 'monospace', lineHeight: '1', maxWidth: '48rem', marginLeft: 'auto', marginRight: 'auto'}}>
             {name.map((letter, i) => (
             <motion.span
@@ -65,7 +65,7 @@ export default function Hero() {
           viewport={{ amount: 0.3, once: false  }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.8 + name.length * 0.04 + 0.3 + title.length * 0.15 + 0.3, duration: 0.6 }}
-          style={{fontSize: 'clamp(0.75rem, 1.8vw, 1rem)', fontWeight: '500', color: '#9C9FAA', marginBottom: 'clamp(1rem, 3vw, 2.2rem)',
+          style={{fontSize: 'clamp(0.55rem, 1.8vw, 1rem)', fontWeight: '500', color: '#9C9FAA', marginBottom: 'clamp(1rem, 3vw, 2.2rem)',
           letterSpacing: '0.2rem', lineHeight: '1.625', maxWidth: '36rem', marginInline: 'auto'}}>
           I turn ideas into working softwares. I pick up new technologies fast and focus on delivering real value.
         </motion.p>
