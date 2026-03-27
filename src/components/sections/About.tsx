@@ -63,13 +63,17 @@ export default function About({ locale }: AboutProps) {
                 gridColumn: !isMobile && index === 0 ? '1 / -1' : undefined,
                 justifySelf: !isMobile && index === 0 ? 'center' : 'stretch',
                 maxWidth: !isMobile && index === 0 ? '280px' : 'auto',
-                minHeight: isMobile ? '100px' : 'auto'
+                minHeight: isMobile ? '120px' : 'auto',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center'
               }}
             >
               <span style={{display: 'block', fontSize: isMobile ? '1.5rem' : 'clamp(1.25rem, 2.5vw, 1.8rem)', fontWeight: '700', color: '#4FFFA4', marginBottom: '0.3rem', whiteSpace: 'nowrap' }}>
                 {stat.value}
               </span>
-              <span style={{ color: '#ACAFB8', fontSize: isMobile ? '0.8rem' : 'clamp(0.75rem, 1vw, 0.875rem)', letterSpacing: '0.05em', whiteSpace: 'nowrap', display: 'block' }}>
+              <span style={{ color: '#ACAFB8', fontSize: isMobile ? '0.8rem' : 'clamp(0.75rem, 1vw, 0.875rem)', letterSpacing: '0.05em', display: 'block', lineHeight: '1.3' }}>
                 {stat.label}
               </span>
             </motion.div>
