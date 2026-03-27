@@ -45,7 +45,7 @@ export default function Navbar({ locale, setLocale }: NavbarProps) {
         {/* Logo / Name */}
         <a href='#hero'
           className="font-mono text-accent text-xs sm:text-sm tracking-widest uppercase whitespace-nowrap">
-          {'<Estelle N./>'}
+          {'<Estelle/>'}
         </a>
 
         <div style={{gap: 'clamp(1rem, 3vw, 4rem)', display: 'flex',alignItems: 'center', justifyContent: 'space-between'}}>
@@ -163,6 +163,38 @@ export default function Navbar({ locale, setLocale }: NavbarProps) {
                 >
                   {translations[locale].navbar.hireMe}
                 </a>
+              </li>
+              <li>
+                <button
+                  onClick={() => {
+                    setLocale(locale === 'en' ? 'fr' : 'en')
+                    closeMobileMenu()
+                  }}
+                  style={{
+                    fontSize: '0.875rem',
+                    border: '1px solid #4FFFA4',
+                    color: '#4FFFA4',
+                    padding: '0.5rem 1rem',
+                    borderRadius: '4px',
+                    fontFamily: 'monospace',
+                    display: 'inline-block',
+                    marginTop: '0.5rem',
+                    transition: 'all 0.2s',
+                    backgroundColor: 'transparent',
+                    cursor: 'pointer'
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.backgroundColor = '#4FFFA4'
+                    e.currentTarget.style.color = '#0D0F14'
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.backgroundColor = 'transparent'
+                    e.currentTarget.style.color = '#4FFFA4'
+                  }}
+                  aria-label="Toggle language"
+                >
+                  {translations[locale].navbar.languageButton}
+                </button>
               </li>
             </ul>
           </motion.div>

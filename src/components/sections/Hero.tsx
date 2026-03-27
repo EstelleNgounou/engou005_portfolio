@@ -103,14 +103,6 @@ export default function Hero({ locale }: HeroProps) {
         {t.resume}
       </a>
       </div>
-      
-
-      {/* Scroll indicator */}
-      <div style={{position: 'absolute', bottom: '2.5rem', left: '50%', transform: 'translateX(-50%)', zIndex: 20,
-      display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem'}}>
-        <span style={{color: '#5A6072', fontSize: '0.75rem', fontFamily: 'monospace',letterSpacing: '0.1em',}}>SCROLL</span>
-        <div style={{ width: '1px', height: '3rem', background: 'linear-gradient(to bottom, #4FFFA4, transparent)', animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',}} />
-      </div>
     </section>
   )
 }
