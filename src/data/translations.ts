@@ -73,18 +73,18 @@ export const translations: Record<Locale, any> = {
       },
       items: [
         {
-          type: 'experience',
-          title: 'Junior Software Developer',
-          institution: 'Normex',
-          period: 'Sept 2025 — Present',
-          description: 'Designed and shipped frontend features that improved usability and accessibility for end users across food and manufacturing organizations',
-        },
-        {
           type: 'education',
           title: 'Bachelor of Computer Science',
           institution: 'University of Ottawa',
           period: 'Jan 2023 — April 2026',
           description: 'Coursework covering algorithms, data structures, software engineering, distributed systems, and machine learning.',
+        },
+        {
+          type: 'experience',
+          title: 'Junior Software Developer',
+          institution: 'Normex',
+          period: 'Sept 2025 — Present',
+          description: 'Designed and shipped frontend features that improved usability and accessibility for end users across food and manufacturing organizations',
         },
         {
           type: 'experience',

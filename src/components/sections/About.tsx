@@ -1,6 +1,7 @@
 'use client'
 import { motion } from "framer-motion";
 import { translations, type Locale } from '@/data/translations'
+import { useState, useEffect } from 'react'
 
 type AboutProps = {
   locale: Locale
@@ -8,6 +9,14 @@ type AboutProps = {
 
 export default function About({ locale }: AboutProps) {
   const t = translations[locale].about
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   return (
     <section id="about" style={{ minHeight: '100vh', padding: 'clamp(3rem, 8vw, 6rem) clamp(1rem, 4vw, 1.5rem)', display: 'flex', alignItems: 'center' }}>
@@ -33,7 +42,7 @@ export default function About({ locale }: AboutProps) {
         </div>
 
         {/* Stats */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: 'clamp(0.75rem, 2.5vw, 1.25rem)', marginTop: 'clamp(2rem, 4vw, 6rem)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(170px, 1fr))', gap: 'clamp(0.75rem, 2.5vw, 1.25rem)', marginTop: 'clamp(2rem, 4vw, 6rem)' }}>
           {t.stats.map((stat: { value: string; label: string }, index: number) => (
             <motion.div
               key={stat.label}
@@ -54,9 +63,9 @@ export default function About({ locale }: AboutProps) {
                 textAlign: 'center',
                 cursor: 'default',
                 boxShadow: '0 0 0 1px rgba(79,255,164,0.1), 0 8px 20px rgba(0,0,0,0.25)',
-                gridColumn: index === 0 ? '1 / -1' : undefined,
-                justifySelf: index === 0 ? 'center' : 'stretch',
-                maxWidth: index === 0 ? '280px' : 'auto'
+                gridColumn: !isMobile && index === 0 ? '1 / -1' : undefined,
+                justifySelf: !isMobile && index === 0 ? 'center' : 'stretch',
+                maxWidth: !isMobile && index === 0 ? '280px' : 'auto'
               }}
             >
               <span style={{display: 'block', fontSize: 'clamp(1.25rem, 2.5vw, 1.8rem)', fontWeight: '700', color: '#4FFFA4', marginBottom: '0.3rem' }}>
