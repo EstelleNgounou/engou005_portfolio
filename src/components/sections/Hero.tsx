@@ -30,7 +30,7 @@ export default function Hero() {
           Hello, I&apos;m
         </motion.p>
 
-        <h1 style={{fontSize: 'clamp(2rem, 7vw, 3.5rem)', fontWeight: '700', color: '#E8EAF0', marginBottom: 'clamp(0.5rem, 2vw, 1rem)',
+        <h1 style={{fontSize: 'clamp(1.25rem, 5.5vw, 3.5rem)', fontWeight: '700', color: '#E8EAF0', marginBottom: 'clamp(0.5rem, 2vw, 1rem)',
           letterSpacing: '0.2rem', fontFamily: 'monospace', lineHeight: '1', maxWidth: '48rem', marginLeft: 'auto', marginRight: 'auto'}}>
             {name.map((letter, i) => (
             <motion.span
@@ -46,7 +46,7 @@ export default function Hero() {
           ))}
         </h1>
 
-        <h2 style={{fontSize: 'clamp(1rem, 4vw, 1.4rem)', fontWeight: '500', color: '#ACAFB8', marginBottom: '0rem',
+        <h2 style={{fontSize: 'clamp(0.8rem, 3.5vw, 1.4rem)', fontWeight: '500', color: '#ACAFB8', marginBottom: '0rem',
           letterSpacing: '0.2rem', lineHeight: '1.4',  display: 'flex', justifyContent: 'center', gap: 'clamp(0.25rem, 1vw, 0.5rem)', flexWrap: 'wrap' }}>
           {title.map((word, i) => (
             <motion.span
@@ -65,7 +65,7 @@ export default function Hero() {
           viewport={{ amount: 0.3, once: false  }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.8 + name.length * 0.04 + 0.3 + title.length * 0.15 + 0.3, duration: 0.6 }}
-          style={{fontSize: 'clamp(0.875rem, 2vw, 0.875rem)', fontWeight: '500', color: '#9C9FAA', marginBottom: 'clamp(1rem, 3vw, 2.2rem)',
+          style={{fontSize: 'clamp(0.75rem, 1.8vw, 1rem)', fontWeight: '500', color: '#9C9FAA', marginBottom: 'clamp(1rem, 3vw, 2.2rem)',
           letterSpacing: '0.2rem', lineHeight: '1.625', maxWidth: '36rem', marginInline: 'auto'}}>
           I turn ideas into working softwares. I pick up new technologies fast and focus on delivering real value.
         </motion.p>
@@ -96,7 +96,7 @@ export default function Hero() {
         borderBottom: '1px solid #252A36', paddingBottom: '1px', transition: 'color 0.2s',}}
         onMouseEnter={e => e.currentTarget.style.color = '#4FFFA4'}
         onMouseLeave={e => e.currentTarget.style.color = '#5A6072'}>
-        Download Me
+        Download My Resume
       </a>
       </div>
       
