@@ -1,0 +1,226 @@
+export type Locale = 'en' | 'fr'
+
+export const translations: Record<Locale, any> = {
+  en: {
+    navbar: {
+      languageButton: 'FR',
+      hireMe: 'HIRE ME',
+    },
+    hero: {
+      greeting: "Hello, I'm",
+      name: 'Estelle Laeticia Ngounou',
+      title: 'Passionate Software Developer',
+      subtitle: 'I turn ideas into working software. I pick up new technologies fast and focus on delivering real value.',
+      viewWork: 'View my work',
+      getInTouch: 'Get in touch',
+      resume: 'Download My Resume',
+    },
+    about: {
+      heading: 'Who I am',
+      intro1: "I'm a recently graduated Computer Science developer, eager to bring fresh perspectives and strong fundamentals to real-world challenges.",
+      intro2: "I'm actively looking for opportunities where I can contribute, grow, and keep building things that matter.",
+      outro: "When I'm not coding, you'll find me in the kitchen baking, at the gym, or spending time with my family.",
+      stats: [
+        { value: '10+', label: 'Projects completed' },
+        { value: '10+', label: 'Technologies' },
+        { value: '∞', label: 'Coffee consumed' },
+      ],
+    },
+    skills: {
+      heading: 'My tech stack',
+      categories: {
+        'Languages': 'Languages',
+        'Frameworks & Libraries': 'Frameworks & Libraries',
+        'Tools & Systems': 'Tools & Systems',
+      },
+    },
+    projects: {
+      heading: 'Things I\'ve built',
+      viewCode: 'Code',
+      viewLive: 'Live',
+      items: [
+        {
+          title: 'AffirmBot',
+          description: 'Built and deployed a conversational chatbot using Python that analyzes user input and delivers context-aware personalized affirmations through intelligent intent recognition and response mapping.',
+          tags: ['Python', 'Flask', 'Render', 'HTML', 'JavaScript', 'CSS'],
+          github: 'https://github.com/EstelleNgounou/affirmbot',
+          live: 'https://affirmbot.onrender.com',
+          image: '/projects/affirmbot.png',
+        },
+        {
+          title: 'Rentify',
+          description: 'A group project designed to connect renters with lessors, enabling users to list, request, and manage item rentals seamlessly. With dedicated functionalities for renters and lessors, the platform offers an efficient and user-friendly rental experience.',
+          tags: ['Android Studio', 'Java', 'XML'],
+          github: 'https://github.com/EstelleNgounou/Rentify',
+          live: '',
+          image: '/projects/rentify.png',
+        },
+        {
+          title: 'Environmental Monitoring System',
+          description: 'Engineered an IoT system to monitor critical environmental conditions (temperature, humidity, and CO2 levels) in data centers, with automated real-time alerts triggered when thresholds are exceeded.',
+          tags: ['Esp32', 'Laser Cutting', 'Sensors', 'Blynk'],
+          github: 'https://github.com/EstelleNgounou/Environmental-Monitoring-System',
+          live: '',
+          image: '/projects/monitor.png',
+        },
+      ],
+    },
+    education: {
+      heading: 'Education & Experience',
+      type: {
+        experience: 'experience',
+        education: 'education',
+      },
+      items: [
+        {
+          type: 'experience',
+          title: 'Junior Software Developer',
+          institution: 'Normex',
+          period: 'Sept 2025 — Present',
+          description: 'Designed and shipped frontend features that improved usability and accessibility for end users across food and manufacturing organizations',
+        },
+        {
+          type: 'education',
+          title: 'Bachelor of Computer Science',
+          institution: 'University of Ottawa',
+          period: 'Jan 2023 — April 2026',
+          description: 'Coursework covering algorithms, data structures, software engineering, distributed systems, and machine learning.',
+        },
+        {
+          type: 'experience',
+          title: 'Fundraiser',
+          institution: 'Fundraising Direct',
+          period: 'May 2024 — Sept 2025',
+          description: 'Applied persuasive communication and negotiation skills to consistently meet and exceed fundraising targets',
+        },
+      ],
+    },
+    contact: {
+      heading: 'Let\'s work together',
+      description: 'I\'m currently open to new opportunities and always eager to collaborate on interesting projects. Whether you have a development role in mind, a creative project to discuss, a question about my experience, or just want to say hi and connect, I\'d love to hear from you. Feel free to reach out, and let\'s see what we can create together!',
+      form: {
+        name: 'Name',
+        namePlaceholder: 'Jane Doe',
+        email: 'Email',
+        emailPlaceholder: 'jane@example.com',
+        message: 'Message',
+        messagePlaceholder: 'Please contact me with good news...',
+        submit: 'Send message',
+        submitting: 'Sending...',
+        success: '✓ Message sent! I\'ll get back to you soon.',
+        error: 'Failed to send message. Please email me directly at deln.994@gmail.com',
+      },
+    },
+  },
+  fr: {
+    navbar: {
+      languageButton: 'EN',
+      hireMe: 'EMBAUCHER',
+    },
+    hero: {
+      greeting: 'Bonjour, je suis',
+      name: 'Estelle Laeticia Ngounou',
+      title: 'Développeuse Logicielle Passionnée',
+      subtitle: "Je transforme des idées en logiciels fonctionnels. J'apprends vite les nouvelles technologies et je me concentre sur la création de valeur.",
+      viewWork: 'Voir mon travail',
+      getInTouch: 'Me contacter',
+      resume: 'Télécharger mon CV',
+    },
+    about: {
+      heading: 'Qui je suis',
+      intro1: "Je suis une diplômée récente en informatique, prête à apporter de nouvelles perspectives et de solides bases à des projets concrets.",
+      intro2: "Je recherche activement des opportunités où je peux contribuer, évoluer et continuer à construire des projets importants.",
+      outro: "Quand je ne code pas, je suis en cuisine, à la salle ou en famille.",
+      stats: [
+        { value: '10+', label: 'Projets réalisés' },
+        { value: '10+', label: 'Technologies' },
+        { value: '∞', label: 'Cafés bus' },
+      ],
+    },
+    skills: {
+      heading: 'Ma pile technologique',
+      categories: {
+        'Languages': 'Langages',
+        'Frameworks & Libraries': 'Frameworks & Bibliothèques',
+        'Tools & Systems': 'Outils & Systèmes',
+      },
+    },
+    projects: {
+      heading: 'Mes projets',
+      viewCode: 'Code',
+      viewLive: 'Démo',
+      items: [
+        {
+          title: 'AffirmBot',
+          description: 'Un chatbot conversationnel créé et déployé avec Python qui analyse les entrées utilisateur et fournit des affirmations personnalisées et contextuelles grâce à une reconnaissance intelligente des intentions et une cartographie des réponses.',
+          tags: ['Python', 'Flask', 'Render', 'HTML', 'JavaScript', 'CSS'],
+          github: 'https://github.com/EstelleNgounou/affirmbot',
+          live: 'https://affirmbot.onrender.com',
+          image: '/projects/affirmbot.png',
+        },
+        {
+          title: 'Rentify',
+          description: 'Un projet collectif conçu pour connecter les locataires aux propriétaires, permettant aux utilisateurs de lister, demander et gérer facilement les locations d\'articles. Avec des fonctionnalités dédiées aux deux parties, la plateforme offre une expérience de location efficace et conviviale.',
+          tags: ['Android Studio', 'Java', 'XML'],
+          github: 'https://github.com/EstelleNgounou/Rentify',
+          live: '',
+          image: '/projects/rentify.png',
+        },
+        {
+          title: 'Environmental Monitoring System',
+          description: 'Un système IoT conçu pour surveiller les conditions environnementales critiques (température, humidité et niveaux de CO2) dans les centres de données, avec des alertes automatiques en temps réel déclenchées lorsque les seuils sont dépassés.',
+          tags: ['Esp32', 'Laser Cutting', 'Sensors', 'Blynk'],
+          github: 'https://github.com/EstelleNgounou/Environmental-Monitoring-System',
+          live: '',
+          image: '/projects/monitor.png',
+        },
+      ],
+    },
+    education: {
+      heading: 'Éducation et Expérience',
+      type: {
+        experience: 'expérience',
+        education: 'éducation',
+      },
+      items: [
+        {
+          type: 'education',
+          title: 'Baccalauréat en Informatique',
+          institution: 'Université d\'Ottawa',
+          period: 'Jan 2023 — Avril 2026',
+          description: 'Cours couvrant les algorithmes, les structures de données, l\'ingénierie logicielle, les systèmes distribués et l\'apprentissage automatique.',
+        },
+        {
+          type: 'experience',
+          title: 'Développeuse Logicielle Junior',
+          institution: 'Normex',
+          period: 'Sept 2025 — Présent',
+          description: 'Conception et livraison de fonctionnalités frontend qui ont amélioré la convivialité et l\'accessibilité pour les utilisateurs finaux dans les organisations agroalimentaires et manufacturières.',
+        },
+        {
+          type: 'experience',
+          title: 'Agent de Levée de Fonds',
+          institution: 'Fundraising Direct',
+          period: 'Mai 2024 — Sept 2025',
+          description: 'Application de compétences en communication persuasive et en négociation pour atteindre et dépasser systématiquement les objectifs de financement.',
+        },
+      ],
+    },
+    contact: {
+      heading: 'Travaillons ensemble',
+      description: 'Je suis actuellement ouvert aux nouvelles opportunités et toujours enthousiaste pour collaborer sur des projets intéressants. Que vous ayez un rôle de développement en tête, un projet créatif à discuter, une question sur mon expérience, ou que vous vouliez simplement me dire bonjour et discuter, j\'aimerais vous entendre. Nhésitez pas à me contacter, et voyons ce que nous pouvons créer ensemble !',
+      form: {
+        name: 'Nom',
+        namePlaceholder: 'Jane Doe',
+        email: 'Email',
+        emailPlaceholder: 'jane@example.com',
+        message: 'Message',
+        messagePlaceholder: 'Contactez-moi avec une bonne nouvelle...',
+        submit: 'Envoyer le message',
+        submitting: 'Envoi...',
+        success: '✓ Message envoyé! Je vous recontacterai bientôt.',
+        error: 'Échec de l\'envoi du message. Veuillez m\'envoyer un email directement à deln.994@gmail.com',
+      },
+    },
+  },
+}

@@ -16,6 +16,7 @@ import {
   SiAndroid 
 } from 'react-icons/si'
 import { DiVisualstudio } from "react-icons/di"
+import { translations } from '@/data/translations'
 
 const skillGroups = [
   {
@@ -47,7 +48,15 @@ const skillGroups = [
   },
 ]
 
-export default function Skills() {
+import { type Locale } from '@/data/translations'
+
+type SkillsProps = {
+  locale: Locale
+}
+
+export default function Skills({ locale }: SkillsProps) {
+  const t = translations[locale].skills
+  // Locale passed for future translation expansion
   return (
     <section id="skills" style={{ minHeight: '100vh', padding: 'clamp(3rem, 8vw, 6rem) clamp(1rem, 4vw, 1.5rem)', display: 'flex', alignItems: 'center', backgroundColor: '#111318' }}>
       <div style={{ maxWidth: '72rem', margin: '0 auto', width: '100%' }}>
@@ -56,7 +65,7 @@ export default function Skills() {
           02. Skills
         </p>
         <h2 style={{ fontSize: 'clamp(1.75rem, 5vw, 2.5rem)', fontWeight: '700', color: '#E8EAF0', marginBottom: 'clamp(1.5rem, 4vw, 3rem)' }}>
-          My tech stack
+          {t.heading}
         </h2>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 'clamp(1rem, 3vw, 2rem)' }}>
@@ -73,7 +82,7 @@ export default function Skills() {
             >
               <h3 style={{ fontFamily: 'monospace', color: '#4FFFA4', fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
                 letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>
-                {group.category}
+                {t.categories[group.category as keyof typeof t.categories]}
               </h3>
 
               <ul style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', listStyle: 'none', padding: 0 }}>

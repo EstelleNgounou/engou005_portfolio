@@ -1,8 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { Dispatch, SetStateAction, useState, useEffect } from 'react'
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from 'lucide-react'
+import { translations } from '@/data/translations'
+import type { Locale } from '@/data/translations'
  
 const home = [{ label: 'Hero',     href: '#hero'     }]
 
@@ -14,7 +16,12 @@ const links = [
   { label: 'Contact',   href: '#contact'   },
 ]
 
-export default function Navbar() {
+type NavbarProps = {
+  locale: Locale
+  setLocale: Dispatch<SetStateAction<Locale>>
+}
+
+export default function Navbar({ locale, setLocale }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
 
@@ -38,7 +45,7 @@ export default function Navbar() {
         {/* Logo / Name */}
         <a href='#hero'
           className="font-mono text-accent text-xs sm:text-sm tracking-widest uppercase whitespace-nowrap">
-          {'<Estelle/>'}
+          {'<Estelle N./>'}
         </a>
 
         <div style={{gap: 'clamp(1rem, 3vw, 4rem)', display: 'flex',alignItems: 'center', justifyContent: 'space-between'}}>
@@ -63,11 +70,20 @@ export default function Navbar() {
           href="#contact"
           whileHover={{ scale: 1.1, backgroundColor: "#2ecc71", color: "#000000" }}
           style={{fontSize: 'clamp(0.7rem, 1vw, 0.875rem)', border: '1px solid #4FFFA4', color: '#4FFFA4', padding: 'clamp(0.4rem, 1vw, 0.5rem) clamp(0.7rem, 2vw, 1rem)',
-          borderRadius: '4px', textDecoration: 'none', fontFamily: 'monospace', transition: 'all 0.2s', display: 'none'}}
+          borderRadius: '4px', textDecoration: 'none', fontFamily: 'monospace', transition: 'all 0.2s'}}
           className="hidden md:inline-block"
         >
-          HIRE ME
+          {translations[locale].navbar.hireMe}
         </motion.a>
+
+        {/* Language switch */}
+        <button
+          onClick={() => setLocale(locale === 'en' ? 'fr' : 'en')}
+          className="hidden sm:inline-block rounded border border-border px-2 py-1 text-sm text-accent hover:bg-surface/80"
+          aria-label="Toggle language"
+        >
+          {translations[locale].navbar.languageButton}
+        </button>
 
         {/* Mobile Menu Button */}
         <button
@@ -145,7 +161,7 @@ export default function Navbar() {
                     e.currentTarget.style.color = '#4FFFA4'
                   }}
                 >
-                  HIRE ME
+                  {translations[locale].navbar.hireMe}
                 </a>
               </li>
             </ul>

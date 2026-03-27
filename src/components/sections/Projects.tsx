@@ -1,36 +1,18 @@
 'use client'
 
 import { ExternalLink, GitBranch } from 'lucide-react'
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
+import { translations } from '@/data/translations'
 
-const projects = [
-  {
-    title:       'AffirmBot',
-    description: 'Built and deployed a conversational chatbot using Python that analyzes user input and delivers context-aware personalized affirmations through intelligent intent recognition and response mapping.',
-    tags:        ['Python', 'Flask', 'Render', 'HTML', 'JavaScript', 'CSS'],
-    github:      'https://github.com/EstelleNgounou/affirmbot',
-    live:        'https://affirmbot.onrender.com',
-    image:       '/projects/affirmbot.png',
-  },
-  {
-    title:       'Rentify',
-    description: 'A group project designed to connect renters with lessors, enabling users to list, request, and manage item rentals seamlessly. With dedicated functionalities for renters and lessors, the platform offers an efficient and user-friendly rental experience.',
-    tags:        ['Android Studio', 'Java', 'XML'],
-    github:      'https://github.com/EstelleNgounou/Rentify',
-    live:        '',
-    image:       '/projects/rentify.png',
-  },
-  {
-    title:       'Environmental Monitoring System',
-    description: 'Engineered an IoT system to monitor critical environmental conditions (temperature, humidity, and CO2 levels) in data centers, with automated real-time alerts triggered when thresholds are exceeded.',
-    tags:        ['Esp32', 'Laser Cutting', 'Sensors', 'Blynk'],
-    github:      'https://github.com/EstelleNgounou/Environmental-Monitoring-System',
-    live:        '',
-    image:       '/projects/monitor.png',
-  },
-]
+import { type Locale } from '@/data/translations'
 
-export default function Projects() {
+type ProjectsProps = {
+  locale: Locale
+}
+
+export default function Projects({ locale }: ProjectsProps) {
+  const t = translations[locale].projects
+  // Locale passed for future translation
   return (
     <section id="projects" style={{ minHeight: '100vh', padding: 'clamp(3rem, 8vw, 6rem) clamp(1rem, 4vw, 1.5rem)', backgroundColor: '#0D0F14' }}>
       <div style={{ maxWidth: '72rem', margin: '0 auto', width: '100%' }}>
@@ -39,11 +21,11 @@ export default function Projects() {
           03. Projects
         </p>
         <h2 style={{ fontSize: 'clamp(1.75rem, 5vw, 2.5rem)', fontWeight: '700', color: '#E8EAF0', marginBottom: 'clamp(2rem, 5vw, 5rem)' }}>
-          Things I&apos;ve built
+          {t.heading}
         </h2>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(3rem, 6vw, 6rem)' }}>
-          {projects.map((project, i) => {
+          {t.items.map((project: any, i: number) => {
             const isEven = i % 2 === 0
 
             return (
@@ -71,7 +53,7 @@ export default function Projects() {
 
                     {/* Tags */}
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.5rem' }}>
-                      {project.tags.map((tag) => (
+                      {project.tags.map((tag: string) => (
                         <span key={tag} style={{ fontFamily: 'monospace', fontSize: 'clamp(0.65rem, 1vw, 0.75rem)', color: '#4FFFA4',
                           backgroundColor: 'rgba(79,255,164,0.08)', padding: '0.25rem 0.6rem', borderRadius: '0.25rem' }}>
                           {tag}
@@ -87,7 +69,7 @@ export default function Projects() {
                           onMouseEnter={e => e.currentTarget.style.color = '#4FFFA4'}
                           onMouseLeave={e => e.currentTarget.style.color = '#5A6072'}
                         >
-                          <GitBranch size={16} /> Code
+                          <GitBranch size={16} /> {t.viewCode}
                         </a>
                       )}
                       {project.live && (
@@ -96,7 +78,7 @@ export default function Projects() {
                           onMouseEnter={e => e.currentTarget.style.color = '#4FFFA4'}
                           onMouseLeave={e => e.currentTarget.style.color = '#5A6072'}
                         >
-                          <ExternalLink size={16} /> Live
+                          <ExternalLink size={16} /> {t.viewLive}
                         </a>
                       )}
                     </div>

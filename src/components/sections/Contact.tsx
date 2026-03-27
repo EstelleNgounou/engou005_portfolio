@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import { GitBranch, Link2Icon, Mail } from 'lucide-react'
 import { motion } from "framer-motion"
 import { useState } from 'react'
+import { translations } from '@/data/translations'
 
 type FormData = {
   name:    string
@@ -11,7 +12,15 @@ type FormData = {
   message: string
 }
 
-export default function Contact() {
+import { type Locale } from '@/data/translations'
+
+type ContactProps = {
+  locale: Locale
+}
+
+export default function Contact({ locale }: ContactProps) {
+  // Locale passed for future translation implementation
+  const t = translations[locale].contact
   const [serverError, setServerError] = useState<string | null>(null)
   
   const {
@@ -42,7 +51,7 @@ export default function Contact() {
       }
     } catch (error) {
       console.error('Error sending message:', error)
-      setServerError('Failed to send message. Please email me directly at deln.994@gmail.com')
+      setServerError(t.form.error)
     }
   }
 
@@ -54,7 +63,7 @@ export default function Contact() {
           05. Contact
         </p>
         <h2 style={{ fontSize: 'clamp(1.75rem, 5vw, 2.5rem)', fontWeight: '700', color: '#E8EAF0', marginBottom: 'clamp(1.5rem, 3vw, 1rem)' }}>
-          Let&apos;s work together
+          {t.heading}
         </h2>
 
         <div style={{ maxWidth: '72rem', margin: '0 auto', width: '100%', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'clamp(2rem, 4vw, 4rem)' }}>
@@ -74,11 +83,7 @@ export default function Contact() {
           >
             <div>
               <p style={{ color: '#5A6072', lineHeight: '1.75', marginBottom: '2rem', fontSize: 'clamp(0.8rem, 1.5vw, 0.95rem)' }}>
-                I'm currently open to new opportunities and always eager to collaborate on 
-                interesting projects. Whether you have a development role in mind, a creative 
-                project to discuss, a question about my experience, or just want to say hi 
-                and connect, I'd love to hear from you. Feel free to reach out, and let's 
-                see what we can create together!
+                {t.description}
               </p>
             </div>
 
@@ -139,11 +144,11 @@ export default function Contact() {
             noValidate
           >
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-              <label htmlFor="name" style={{ fontSize: 'clamp(0.75rem, 1.2vw, 0.875rem)', color: '#5A6072', fontFamily: 'monospace' }}>Name</label>
+              <label htmlFor="name" style={{ fontSize: 'clamp(0.75rem, 1.2vw, 0.875rem)', color: '#5A6072', fontFamily: 'monospace' }}>{t.form.name}</label>
               <input
                 id="name"
                 type="text"
-                placeholder="Jane Doe"
+                placeholder={t.form.namePlaceholder}
                 style={{
                   backgroundColor: '#0D0F14',
                   border: `1px solid ${errors.name ? '#ef4444' : '#252A36'}`,
@@ -162,11 +167,11 @@ export default function Contact() {
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-              <label htmlFor="email" style={{ fontSize: 'clamp(0.75rem, 1.2vw, 0.875rem)', color: '#5A6072', fontFamily: 'monospace' }}>Email</label>
+              <label htmlFor="email" style={{ fontSize: 'clamp(0.75rem, 1.2vw, 0.875rem)', color: '#5A6072', fontFamily: 'monospace' }}>{t.form.email}</label>
               <input
                 id="email"
                 type="email"
-                placeholder="jane@example.com"
+                placeholder={t.form.emailPlaceholder}
                 style={{
                   backgroundColor: '#0D0F14',
                   border: `1px solid ${errors.email ? '#ef4444' : '#252A36'}`,
@@ -188,11 +193,11 @@ export default function Contact() {
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-              <label htmlFor="message" style={{ fontSize: 'clamp(0.75rem, 1.2vw, 0.875rem)', color: '#5A6072', fontFamily: 'monospace' }}>Message</label>
+              <label htmlFor="message" style={{ fontSize: 'clamp(0.75rem, 1.2vw, 0.875rem)', color: '#5A6072', fontFamily: 'monospace' }}>{t.form.message}</label>
               <textarea
                 id="message"
                 rows={5}
-                placeholder="Please contact me with good news..."
+                placeholder={t.form.messagePlaceholder}
                 style={{
                   backgroundColor: '#0D0F14',
                   border: `1px solid ${errors.message ? '#ef4444' : '#252A36'}`,
@@ -234,7 +239,7 @@ export default function Contact() {
                 if (!isSubmitting) e.currentTarget.style.opacity = '1'
               }}
             >
-              {isSubmitting ? 'Sending...' : 'Send message'}
+              {isSubmitting ? t.form.submitting : t.form.submit}
             </button>
 
             {serverError && (
@@ -245,7 +250,7 @@ export default function Contact() {
 
             {isSubmitSuccessful && (
               <p style={{ color: '#4FFFA4', fontSize: 'clamp(0.75rem, 1.2vw, 0.875rem)', textAlign: 'center', fontFamily: 'monospace' }}>
-                ✓ Message sent! I&apos;ll get back to you soon.
+                {t.form.success}
               </p>
             )}
           </motion.form>

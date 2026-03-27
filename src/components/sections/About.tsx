@@ -1,7 +1,14 @@
 'use client'
 import { motion } from "framer-motion";
+import { translations, type Locale } from '@/data/translations'
 
-export default function About() {
+type AboutProps = {
+  locale: Locale
+}
+
+export default function About({ locale }: AboutProps) {
+  const t = translations[locale].about
+
   return (
     <section id="about" style={{ minHeight: '100vh', padding: 'clamp(3rem, 8vw, 6rem) clamp(1rem, 4vw, 1.5rem)', display: 'flex', alignItems: 'center' }}>
       <div style={{ maxWidth: '72rem', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'clamp(2rem, 5vw, 4rem)', alignItems: 'center', width: '100%' }}>
@@ -12,49 +19,53 @@ export default function About() {
             01. About me
           </p>
           <h2 style={{ fontSize: 'clamp(1.75rem, 5vw, 2.5rem)', fontWeight: '700', color: '#E8EAF0', marginBottom: '1.5rem' }}>
-            Who I am
+            {t.heading}
           </h2>
           <p style={{ color: '#5A6072', lineHeight: '1.75', marginBottom: '1rem', fontSize: 'clamp(0.875rem, 1.5vw, 0.95rem)' }}>
-            I&apos;m a recently graduated Computer Science developer, 
-            eager to bring fresh perspectives and strong fundamentals to real-world challenges.
-            I&apos;m actively looking for opportunities where I can contribute, grow, 
-            and keep building things that matter.
+            {t.intro1}
           </p>
           <p style={{ color: '#5A6072', lineHeight: '1.75', fontSize: 'clamp(0.875rem, 1.5vw, 0.95rem)' }}>
-            When I&apos;m not coding, you&apos;ll find me in the kitchen baking, 
-            at the gym, or spending time with my family.
+            {t.intro2}
+          </p>
+          <p style={{ color: '#5A6072', lineHeight: '1.75', fontSize: 'clamp(0.875rem, 1.5vw, 0.95rem)' }}>
+            {t.outro}
           </p>
         </div>
 
         {/* Stats */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: 'clamp(0.5rem, 2vw, 1rem)', marginTop: 'clamp(2rem, 4vw, 6rem)' }}>
-          {[
-            { value: '1+',  label: 'Years of experience' },
-            { value: '10+', label: 'Projects completed'  },
-            { value: '10+', label: 'Technologies'        },
-            { value: '∞',   label: 'Coffee consumed'     },
-          ].map((stat) => (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: 'clamp(0.75rem, 2.5vw, 1.25rem)', marginTop: 'clamp(2rem, 4vw, 6rem)' }}>
+          {t.stats.map((stat: { value: string; label: string }, index: number) => (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ amount: 0.4 }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
               whileHover={{ 
                 borderColor: '#4FFFA4', 
-                scale: 1.06,
-                transition: { duration: 0.1, type: 'tween' }
+                scale: 1.04,
+                transition: { duration: 0.15, type: 'tween' }
               }}
-              style={{backgroundColor: '#161A23',  border: '1px solid #252A36', borderRadius: '0.5rem',
-              padding: 'clamp(1rem, 2vw, 2rem)', textAlign: 'center', cursor: 'default',  boxShadow: '1px 2px 4px #4FFFA4'}}
-              >
-            <span style={{display: 'block', fontSize: 'clamp(1.5rem, 3vw, 1.875rem)', fontWeight: '700', color: '#4FFFA4', marginBottom: '0.25rem' }}>
-            {stat.value}
-            </span>
-            <span style={{ color: '#5A6072', fontSize: 'clamp(0.75rem, 1vw, 0.875rem)' }}>
-            {stat.label}
-            </span>
-          </motion.div>
+              style={{
+                backgroundColor: '#161A23',
+                border: '1px solid #252A36',
+                borderRadius: '0.75rem',
+                padding: 'clamp(0.95rem, 1.8vw, 1.7rem)',
+                textAlign: 'center',
+                cursor: 'default',
+                boxShadow: '0 0 0 1px rgba(79,255,164,0.1), 0 8px 20px rgba(0,0,0,0.25)',
+                gridColumn: index === 0 ? '1 / -1' : undefined,
+                justifySelf: index === 0 ? 'center' : 'stretch',
+                maxWidth: index === 0 ? '280px' : 'auto'
+              }}
+            >
+              <span style={{display: 'block', fontSize: 'clamp(1.25rem, 2.5vw, 1.8rem)', fontWeight: '700', color: '#4FFFA4', marginBottom: '0.3rem' }}>
+                {stat.value}
+              </span>
+              <span style={{ color: '#ACAFB8', fontSize: 'clamp(0.75rem, 1vw, 0.875rem)', letterSpacing: '0.05em' }}>
+                {stat.label}
+              </span>
+            </motion.div>
           ))}
         </div>
 
