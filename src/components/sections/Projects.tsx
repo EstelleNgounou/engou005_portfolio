@@ -39,7 +39,7 @@ export default function Projects({ locale }: ProjectsProps) {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ amount: 0.3 }}
                   transition={{ duration: 0.6, ease: 'easeOut' }}
-                  style={{ order: isEven ? 1 : 2 }}
+                  className={`order-1 md:order-${isEven ? 1 : 2}`}
                 >
                   <div style={{ backgroundColor: '#161A23', border: '1px solid #252A36', borderRadius: '0.5rem', padding: 'clamp(1.25rem, 3vw, 2rem)' }}>
                     <h3 style={{ fontFamily: 'monospace', color: '#4FFFA4', fontSize: 'clamp(0.95rem, 2vw, 1.1rem)',
@@ -91,7 +91,7 @@ export default function Projects({ locale }: ProjectsProps) {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{amount: 0.3 }}
                   transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
-                  style={{ order: isEven ? 2 : 1 }}
+                  className={`order-2 md:order-${isEven ? 2 : 1}`}
                 >
                   <div style={{ borderRadius: '0.5rem', overflow: 'hidden', border: '1px solid #252A36',
   backgroundColor: '#161A23' }}>
