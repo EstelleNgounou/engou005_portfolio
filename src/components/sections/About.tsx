@@ -39,7 +39,7 @@ export default function About({ locale }: AboutProps) {
         </div>
 
         {/* Stats */}
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(170px, 1fr))', gap: 'clamp(0.75rem, 2.5vw, 1.25rem)', marginTop: 'clamp(2rem, 4vw, 6rem)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 'clamp(0.75rem, 2.5vw, 1.25rem)', marginTop: 'clamp(2rem, 4vw, 6rem)' }}>
           {t.stats.map((stat: { value: string; label: string }, index: number) => (
             <motion.div
               key={stat.label}
