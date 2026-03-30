@@ -3,6 +3,7 @@
 import { ExternalLink, GitBranch } from 'lucide-react'
 import { motion } from "framer-motion"
 import { translations } from '@/data/translations'
+import { useState, useEffect } from 'react'
 
 import { type Locale } from '@/data/translations'
 
@@ -12,6 +13,15 @@ type ProjectsProps = {
 
 export default function Projects({ locale }: ProjectsProps) {
   const t = translations[locale].projects
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const updateMobile = () => setIsMobile(window.innerWidth < 768)
+    updateMobile()
+    window.addEventListener('resize', updateMobile)
+    return () => window.removeEventListener('resize', updateMobile)
+  }, [])
+
   // Locale passed for future translation
   return (
     <section id="projects" style={{ minHeight: '100vh', padding: 'clamp(3rem, 8vw, 6rem) clamp(1rem, 4vw, 1.5rem)', backgroundColor: '#0D0F14' }}>
@@ -31,7 +41,7 @@ export default function Projects({ locale }: ProjectsProps) {
             return (
               <div
                 key={project.title}
-                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'clamp(1.5rem, 4vw, 3rem)', alignItems: 'center' }}
+                style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'clamp(1.5rem, 4vw, 3rem)', alignItems: 'center' }}
               >
                 {/* Info card — left on even, right on odd */}
                 <motion.div
